@@ -5,6 +5,7 @@ Resource  ../Resources/PageObjects/AddToCart.robot
 Resource  ../Resources/PageObjects/OpenHomePage.robot
 Resource  ../Resources/PageObjects/SearchProduct.robot
 Resource  ../Resources/PageObjects/ViewProductDetails.robot
+Resource  ../Resources/PageObjects/ClickProduct.robot
 
 *** Keywords ***
 
@@ -17,4 +18,10 @@ Search For Product
     Navigate to home page
     SearchProduct.Search Product        ${searched_item}
     SearchProduct.Verify Search Compilation     ${searched_item}
+
+Select a Product
+    [Arguments]     ${searched_item}
+    Search For Product       ${searched_item}
+    ClickProduct.Click Product
+    ClickProduct.Verify Search Compilation
 
